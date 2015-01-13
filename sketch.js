@@ -1,6 +1,8 @@
-var pomLength = 25;
-var shortBreakLength = 5;
-var longBreakLength = 15;
+var sprintLength = 25;
+var newSprintLength = 0;
+var maxLength = 50;
+// var shortBreakLength = 5;
+// var longBreakLength = 15;
 var secondsLeft = 0;
 var timerActive = false;
 var previousSecond = 60;
@@ -14,42 +16,42 @@ function preload() {
 }
 
 function setup() {
-  //create button for starting a pomodoro
-  pomodoroButton = createButton('pomodoro');
-  //startPomButton.position(20,20);
-  pomodoroButton.mousePressed(startPom);
+  // //create button for starting a sprint
+  // sprintButton = createButton('sprint');
+  // //startSprintButton.position(20,20);
+  // sprintButton.mousePressed(startSprint);
   
-  //create button for starting a short break
-  shortBreakButton = createButton('short break');
-  shortBreakButton.mousePressed(shortBreak);
+  // //create button for starting a short break
+  // shortBreakButton = createButton('short break');
+  // shortBreakButton.mousePressed(shortBreak);
   
-  //create button for starting a long break
-  longBreakButton = createButton('long break');
-  longBreakButton.mousePressed(longBreak);
+  // //create button for starting a long break
+  // longBreakButton = createButton('long break');
+  // longBreakButton.mousePressed(longBreak);
 
-  //create button for cancelling the timer
-  longBreakButton = createButton('cancel');
-  longBreakButton.mousePressed(cancelTimer);
+  // //create button for cancelling the timer
+  // longBreakButton = createButton('cancel');
+  // longBreakButton.mousePressed(cancelTimer);
 
 
   //create canvas
-  createCanvas(600,140);
+  createCanvas(1000,250);
   
   background(backgroundColor);
   noStroke();
   fill(170,255,0);
   rectMode(CORNERS);
   
-  
   // createElement('form','<input width="550" spellcheck="false" placeholder="log entry..."></input> <input id="submit" type="submit"</input>');
   logInput = createInput('');
-  logInput.size(550);
+  logInput.size(950);
   logInput.attribute('id','entry');
   logInput.attribute('spellcheck','false');
   logInput.attribute('placeholder','log entry...');
   logInput.attribute('autofocus','true');
-  
-  
+
+  textSize(32);  
+  textAlign(CENTER);  
 }
 
 function draw() {
@@ -68,7 +70,7 @@ var currentSecond = second();
     }
 
     //draw progress bar
-    rect(0,0,map(secondsLeft,0,pomLength*60,0,width),200); //add *60 to pom minutes
+    rect(0,0,map(secondsLeft,0,maxLength*60,0,width),height);
 
 
     // //debugging stuff
@@ -83,7 +85,7 @@ var currentSecond = second();
   if (timerActive === true && secondsLeft<1) {
     timerActive = false;
     playTimerDone();
-    createElement('p','['+hour() + ':' + minute()+'] timer done. please rate your time [****]');
+    createElement('p','['+ getTime() +'] timer done');
    }
 
  
@@ -93,9 +95,46 @@ var currentSecond = second();
   // remember the current second to compare next time through
   previousSecond = second();
 
-  
+
+  // show length of new timer when hovering over timer bar
+  if (mouseX > 0 && mouseX < width && mouseY >= 0 && mouseY < height) {
+
+ 
+    // draw rect
+    fill(100, 100, 100, 50);
+    rect(0,0,mouseX,height);
+
+    // update sprintLength to match hover
+    newSprintLength = round(mouseX/20)
+    
+    // draw the length of the new timer when hovering
+    // (dividing by 10 gives the 600 px canvas a max length of 60 minutes)
+    fill(85,98,112);
+    textFont('Open Sans')
+    text("start " + newSprintLength + " minute sprint", width/2,(height/2) + 16); 
   
   // print(millis());
+
+  }  
+}
+
+function getTime() {
+  var time = "";
+  time += hour()%12 + ":";
+
+  if (minute() < 10) {
+  	time += "0";
+  }
+
+  time += minute();
+
+  if (hour() > 12) {
+  	time += "pm";
+  } else {
+  	time += "am";
+  }
+
+  return time;
 }
 
 function keyPressed() {
@@ -106,40 +145,40 @@ function keyPressed() {
 
 function recordEntry() {
   var entry = document.getElementById('entry');
-  createElement('p','['+hour() + ':' + minute()+'] ' + entry.value);
+  createElement('p','['+ getTime() +'] ' + entry.value);
   //createElement('p',entry.value);
   entry.value = '';
 }
 
 // start a timer for the desired number of seconds
-function startPom(seconds) {
+function startSprint(seconds) {
   timerDone.stop();
-  seconds = pomLength*60; 
+  seconds = sprintLength*60; 
   secondsLeft = seconds;
   timerActive = true;
 
-  createElement('p','['+hour() + ':' + minute()+'] pomodoro started');
+  createElement('p','['+ getTime() +'] ' + sprintLength + ' minute sprint started');
   
 }
 
-function shortBreak(seconds) {
-  timerDone.stop();
-  seconds = shortBreakLength*60;
-  secondsLeft = seconds;
-  timerActive = true;
+// function shortBreak(seconds) {
+//   timerDone.stop();
+//   seconds = shortBreakLength*60;
+//   secondsLeft = seconds;
+//   timerActive = true;
 
-  createElement('p','['+hour() + ':' + minute()+'] short break started');
+//   createElement('p','['+hour() + ':' + minute()+'] short break started');
   
-}
+// }
 
-function longBreak(seconds) {
-  timerDone.stop();
-  seconds = longBreakLength*60;
-  secondsLeft = seconds;
-  timerActive = true;
+// function longBreak(seconds) {
+//   timerDone.stop();
+//   seconds = longBreakLength*60;
+//   secondsLeft = seconds;
+//   timerActive = true;
 
-  createElement('p','['+hour() + ':' + minute()+'] long break started');
-}
+//   createElement('p','['+hour() + ':' + minute()+'] long break started');
+// }
 
 function cancelTimer() {
   timerActive = false;
@@ -158,4 +197,12 @@ function playTimerDone() {
 
 function mouseClicked() {
   timerDone.stop();
-}
+
+  if (mouseX > 0 && mouseX < width && mouseY >= 0 && mouseY < height) {
+  	sprintLength = newSprintLength;
+  	startSprint();
+  }
+
+
+
+} 
