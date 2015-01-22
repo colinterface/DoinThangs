@@ -1,0 +1,279 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'phonegap' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose cache add [ 'phonegap', null ]
+5 verbose cache add name=undefined spec="phonegap" args=["phonegap",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'phonegap',
+6 verbose parsed url   path: 'phonegap',
+6 verbose parsed url   href: 'phonegap' }
+7 silly lockFile 10db903f-phonegap phonegap
+8 verbose lock phonegap /Users/ultralame/.npm/10db903f-phonegap.lock
+9 silly lockFile 10db903f-phonegap phonegap
+10 silly lockFile 10db903f-phonegap phonegap
+11 verbose addNamed [ 'phonegap', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 3a6257f3-phonegap phonegap@
+14 verbose lock phonegap@ /Users/ultralame/.npm/3a6257f3-phonegap.lock
+15 silly addNameRange { name: 'phonegap', range: '*', hasData: false }
+16 verbose request where is /phonegap
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 18376a629ebf10c2
+19 verbose url raw /phonegap
+20 verbose url resolving [ 'https://registry.npmjs.org/', './phonegap' ]
+21 verbose url resolved https://registry.npmjs.org/phonegap
+22 verbose request where is https://registry.npmjs.org/phonegap
+23 info trying registry request attempt 1 at 13:42:28
+24 http GET https://registry.npmjs.org/phonegap
+25 http 200 https://registry.npmjs.org/phonegap
+26 silly registry.get cb [ 200,
+26 silly registry.get   { date: 'Wed, 21 Jan 2015 21:42:29 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"1HPHOK2WMPBQ8VKRIKJRSJY8D"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=60',
+26 silly registry.get     'content-length': '196961',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-lax1433-LAX',
+26 silly registry.get     'x-cache': 'HIT',
+26 silly registry.get     'x-cache-hits': '1',
+26 silly registry.get     'x-timer': 'S1421876549.203504,VS0,VE80',
+26 silly registry.get     vary: 'Accept',
+26 silly registry.get     'keep-alive': 'timeout=10, max=50',
+26 silly registry.get     connection: 'Keep-Alive' } ]
+27 silly addNameRange number 2 { name: 'phonegap', range: '*', hasData: true }
+28 silly addNameRange versions [ 'phonegap',
+28 silly addNameRange   [ '0.2.0',
+28 silly addNameRange     '0.2.1',
+28 silly addNameRange     '0.2.2',
+28 silly addNameRange     '0.3.0',
+28 silly addNameRange     '0.4.0',
+28 silly addNameRange     '0.4.1',
+28 silly addNameRange     '0.5.0',
+28 silly addNameRange     '0.6.0',
+28 silly addNameRange     '0.6.1',
+28 silly addNameRange     '0.7.0',
+28 silly addNameRange     '0.7.1',
+28 silly addNameRange     '0.7.2',
+28 silly addNameRange     '0.7.3',
+28 silly addNameRange     '0.7.4',
+28 silly addNameRange     '0.7.5',
+28 silly addNameRange     '0.7.6',
+28 silly addNameRange     '0.7.7',
+28 silly addNameRange     '0.7.8',
+28 silly addNameRange     '0.8.0',
+28 silly addNameRange     '0.8.1',
+28 silly addNameRange     '0.9.0',
+28 silly addNameRange     '0.9.1',
+28 silly addNameRange     '0.9.2',
+28 silly addNameRange     '0.9.3',
+28 silly addNameRange     '0.9.4',
+28 silly addNameRange     '2.8.0-0.10.0',
+28 silly addNameRange     '2.8.0-0.10.1',
+28 silly addNameRange     '2.8.0-0.10.2',
+28 silly addNameRange     '2.8.0-0.10.3',
+28 silly addNameRange     '2.8.0-0.10.4',
+28 silly addNameRange     '2.8.0-0.10.6',
+28 silly addNameRange     '2.8.1-0.11.0',
+28 silly addNameRange     '2.9.0-0.12.2',
+28 silly addNameRange     '2.9.0-0.12.3',
+28 silly addNameRange     '2.9.0-0.12.4',
+28 silly addNameRange     '2.9.0-0.12.5',
+28 silly addNameRange     '2.9.0-0.12.6',
+28 silly addNameRange     '2.9.0-0.12.7',
+28 silly addNameRange     '2.9.0-0.12.8',
+28 silly addNameRange     '2.9.0-rc1-0.12.0',
+28 silly addNameRange     '2.9.0-rc1-0.12.1',
+28 silly addNameRange     '2.9.0-rc1-0.12.2',
+28 silly addNameRange     '2.9.0-0.12.9',
+28 silly addNameRange     '2.9.0-0.12.10',
+28 silly addNameRange     '2.9.0-0.12.11',
+28 silly addNameRange     '2.9.0-0.13.0',
+28 silly addNameRange     '2.9.0-0.13.1',
+28 silly addNameRange     '2.9.0-0.13.2',
+28 silly addNameRange     '3.0.0-rc1-0.13.2',
+28 silly addNameRange     '3.0.0-rc1-0.13.3',
+28 silly addNameRange     '3.0.0-0.14.0',
+28 silly addNameRange     '3.0.0-0.14.1',
+28 silly addNameRange     '3.0.0-0.14.2',
+28 silly addNameRange     '3.0.0-0.14.3',
+28 silly addNameRange     '3.0.0-0.14.4',
+28 silly addNameRange     '3.1.0-0.15.0',
+28 silly addNameRange     '3.2.0-0.15.0',
+28 silly addNameRange     '3.2.0-0.16.0',
+28 silly addNameRange     '3.2.0-0.17.0',
+28 silly addNameRange     '3.2.0-0.17.1',
+28 silly addNameRange     '3.3.0-0.17.1',
+28 silly addNameRange     '3.3.0-0.18.0',
+28 silly addNameRange     '3.3.0-0.18.1',
+28 silly addNameRange     '3.3.0-0.19.0',
+28 silly addNameRange     '3.3.0-0.19.1',
+28 silly addNameRange     '3.3.0-0.19.2',
+28 silly addNameRange     '3.3.0-0.19.3',
+28 silly addNameRange     '3.3.0-0.19.4',
+28 silly addNameRange     '3.3.0-0.19.5',
+28 silly addNameRange     '3.3.0-0.19.6',
+28 silly addNameRange     '3.4.0-0.19.7',
+28 silly addNameRange     '3.4.0-0.19.8',
+28 silly addNameRange     '3.4.0-0.19.9',
+28 silly addNameRange     '3.4.0-0.19.10',
+28 silly addNameRange     '3.4.0-0.19.11',
+28 silly addNameRange     '3.4.0-0.19.12',
+28 silly addNameRange     '3.4.0-0.19.13',
+28 silly addNameRange     '3.4.0-0.19.14',
+28 silly addNameRange     '3.4.0-0.19.15',
+28 silly addNameRange     '3.4.0-0.19.16',
+28 silly addNameRange     '3.4.0-0.19.17',
+28 silly addNameRange     '3.4.0-0.19.18',
+28 silly addNameRange     '3.4.0-0.19.19',
+28 silly addNameRange     '3.4.0-0.19.20',
+28 silly addNameRange     '3.4.0-0.19.21',
+28 silly addNameRange     '3.4.0-0.20.0',
+28 silly addNameRange     '3.5.0-0.19.23',
+28 silly addNameRange     '3.5.0-0.20.0',
+28 silly addNameRange     '3.5.0-0.20.1',
+28 silly addNameRange     '3.5.0-0.20.3',
+28 silly addNameRange     '3.5.0-0.20.4',
+28 silly addNameRange     '3.5.0-0.20.5',
+28 silly addNameRange     '3.5.0-0.20.6',
+28 silly addNameRange     '3.5.0-0.20.7',
+28 silly addNameRange     '3.5.0-0.20.9',
+28 silly addNameRange     '3.5.0-0.20.10',
+28 silly addNameRange     '3.5.0-0.20.14',
+28 silly addNameRange     '3.5.0-0.21.14',
+28 silly addNameRange     '3.5.0-0.21.15',
+28 silly addNameRange     '3.5.0-0.21.16',
+28 silly addNameRange     '3.5.0-0.21.17',
+28 silly addNameRange     '3.5.0-0.21.18',
+28 silly addNameRange     '3.6.0-0.21.18',
+28 silly addNameRange     '3.6.0-0.21.19',
+28 silly addNameRange     '3.6.3-0.22.0',
+28 silly addNameRange     '3.6.3-0.22.1',
+28 silly addNameRange     '3.6.3-0.22.2',
+28 silly addNameRange     '3.6.3-0.22.3',
+28 silly addNameRange     '3.6.3-0.22.4',
+28 silly addNameRange     '3.6.3-0.22.5',
+28 silly addNameRange     '3.6.3-0.22.6',
+28 silly addNameRange     '3.6.3-0.22.7',
+28 silly addNameRange     '4.0.0-0.22.7',
+28 silly addNameRange     '4.1.2-0.22.7',
+28 silly addNameRange     '4.1.2-0.22.8',
+28 silly addNameRange     '4.1.2-0.22.9',
+28 silly addNameRange     '4.1.2-0.22.10',
+28 silly addNameRange     '4.1.2-0.22.11',
+28 silly addNameRange     '4.1.2-0.22.12',
+28 silly addNameRange     '4.2.0-0.23.0' ] ]
+29 verbose addNamed [ 'phonegap', '4.2.0-0.23.0' ]
+30 verbose addNamed [ '4.2.0-0.23.0', '4.2.0-0.23.0' ]
+31 silly lockFile 78f412e8-phonegap-4-2-0-0-23-0 phonegap@4.2.0-0.23.0
+32 verbose lock phonegap@4.2.0-0.23.0 /Users/ultralame/.npm/78f412e8-phonegap-4-2-0-0-23-0.lock
+33 silly lockFile 838a1e5d-onegap-phonegap-4-2-0-0-23-0-tgz https://registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz
+34 verbose lock https://registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz /Users/ultralame/.npm/838a1e5d-onegap-phonegap-4-2-0-0-23-0-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz',
+35 verbose addRemoteTarball   'd22f05d9592a239d30258832ab3355db4b69dc9b' ]
+36 info retry fetch attempt 1 at 13:42:29
+37 verbose fetch to= /var/folders/hm/mfwxv1qd677gr8wdzts7d1480000gp/T/npm-3518-SWEJ9K9L/registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz
+38 http GET https://registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz
+39 http 200 https://registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz
+40 silly lockFile 838a1e5d-onegap-phonegap-4-2-0-0-23-0-tgz https://registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz
+41 silly lockFile 838a1e5d-onegap-phonegap-4-2-0-0-23-0-tgz https://registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz
+42 silly lockFile 78f412e8-phonegap-4-2-0-0-23-0 phonegap@4.2.0-0.23.0
+43 silly lockFile 78f412e8-phonegap-4-2-0-0-23-0 phonegap@4.2.0-0.23.0
+44 silly lockFile 3a6257f3-phonegap phonegap@
+45 silly lockFile 3a6257f3-phonegap phonegap@
+46 silly resolved [ { name: 'phonegap',
+46 silly resolved     description: 'PhoneGap command-line interface and node.js library.',
+46 silly resolved     version: '4.2.0-0.23.0',
+46 silly resolved     homepage: 'http://github.com/phonegap/phonegap-cli',
+46 silly resolved     repository:
+46 silly resolved      { type: 'git',
+46 silly resolved        url: 'git://github.com/phonegap/phonegap-cli.git' },
+46 silly resolved     keywords:
+46 silly resolved      [ 'cli',
+46 silly resolved        'cordova',
+46 silly resolved        'phonegap',
+46 silly resolved        'phonegap build',
+46 silly resolved        'phonegap/build' ],
+46 silly resolved     preferGlobal: 'true',
+46 silly resolved     main: './lib/main.js',
+46 silly resolved     bin: { phonegap: './bin/phonegap.js' },
+46 silly resolved     scripts: { test: 'jasmine-node --color spec' },
+46 silly resolved     engineStrict: 'true',
+46 silly resolved     engines: { node: '>=0.10.0' },
+46 silly resolved     dependencies:
+46 silly resolved      { colors: '0.6.0-1',
+46 silly resolved        'connect-phonegap': '0.14.6',
+46 silly resolved        cordova: '4.2.0',
+46 silly resolved        minimist: '0.1.0',
+46 silly resolved        'phonegap-build': '0.9.1',
+46 silly resolved        pluralize: '0.0.4',
+46 silly resolved        prompt: '0.2.11',
+46 silly resolved        'qrcode-terminal': '0.9.4',
+46 silly resolved        semver: '1.1.0',
+46 silly resolved        shelljs: '0.1.4' },
+46 silly resolved     devDependencies: { 'jasmine-node': '1.14.5', chdir: '0.0.x' },
+46 silly resolved     optionalDependencies: {},
+46 silly resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+46 silly resolved     gitHead: 'e02335036bcbf4a7c0f437e22c736344e94d889a',
+46 silly resolved     bugs: { url: 'https://github.com/phonegap/phonegap-cli/issues' },
+46 silly resolved     _id: 'phonegap@4.2.0-0.23.0',
+46 silly resolved     _shasum: 'd22f05d9592a239d30258832ab3355db4b69dc9b',
+46 silly resolved     _from: 'phonegap@',
+46 silly resolved     _npmVersion: '2.1.8',
+46 silly resolved     _nodeVersion: '0.10.26',
+46 silly resolved     _npmUser: { name: 'mwbrooks', email: 'michael@michaelbrooks.ca' },
+46 silly resolved     maintainers: [ [Object], [Object], [Object] ],
+46 silly resolved     dist:
+46 silly resolved      { shasum: 'd22f05d9592a239d30258832ab3355db4b69dc9b',
+46 silly resolved        tarball: 'http://registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz' },
+46 silly resolved     directories: {},
+46 silly resolved     _resolved: 'https://registry.npmjs.org/phonegap/-/phonegap-4.2.0-0.23.0.tgz' } ]
+47 info install phonegap@4.2.0-0.23.0 into /usr/local/lib
+48 info installOne phonegap@4.2.0-0.23.0
+49 verbose lib/node_modules/phonegap unbuild
+50 verbose tar unpack /Users/ultralame/.npm/phonegap/4.2.0-0.23.0/package.tgz
+51 silly lockFile f38db7ac--local-lib-node-modules-phonegap tar:///usr/local/lib/node_modules/phonegap
+52 verbose lock tar:///usr/local/lib/node_modules/phonegap /Users/ultralame/.npm/f38db7ac--local-lib-node-modules-phonegap.lock
+53 silly lockFile 043fe623-honegap-4-2-0-0-23-0-package-tgz tar:///Users/ultralame/.npm/phonegap/4.2.0-0.23.0/package.tgz
+54 verbose lock tar:///Users/ultralame/.npm/phonegap/4.2.0-0.23.0/package.tgz /Users/ultralame/.npm/043fe623-honegap-4-2-0-0-23-0-package-tgz.lock
+55 silly gunzTarPerm modes [ '755', '644' ]
+56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/phonegap'
+56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/phonegap']
+56 error   errno: 3,
+56 error   code: 'EACCES',
+56 error   path: '/usr/local/lib/node_modules/phonegap',
+56 error   fstream_type: 'Directory',
+56 error   fstream_path: '/usr/local/lib/node_modules/phonegap',
+56 error   fstream_class: 'DirWriter',
+56 error   fstream_stack:
+56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+56 error      'Object.oncomplete (fs.js:107:15)' ] }
+57 error Please try running this command again as root/Administrator.
+58 error System Darwin 14.0.0
+59 error command "node" "/usr/local/bin/npm" "install" "-g" "phonegap"
+60 error cwd /Users/ultralame/WEB/DoinThangs
+61 error node -v v0.10.33
+62 error npm -v 1.4.28
+63 error path /usr/local/lib/node_modules/phonegap
+64 error fstream_path /usr/local/lib/node_modules/phonegap
+65 error fstream_type Directory
+66 error fstream_class DirWriter
+67 error code EACCES
+68 error errno 3
+69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/phonegap'
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+70 error fstream_stack Object.oncomplete (fs.js:107:15)
+71 verbose exit [ 3, true ]

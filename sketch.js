@@ -1,56 +1,29 @@
 var sprintLength = 25;
 var newSprintLength = 0;
-var maxLength = 50;
-// var shortBreakLength = 5;
-// var longBreakLength = 15;
-var secondsLeft = 0;
+var maxLength = 60;
+var secondsLeft = sprintLength*60;
 var timerActive = false;
 var previousSecond = 60;
 var backgroundColor = 240;
 
+var canvas;
+
 //preload all sounds
 function preload() {
   timerDone = loadSound('alarm01.wav');
-  // tick = loadSound('tick.mp3')
-  // tick.setVolume(.05); //quiet tick sound for debugging
 }
 
 function setup() {
-  // //create button for starting a sprint
-  // sprintButton = createButton('sprint');
-  // //startSprintButton.position(20,20);
-  // sprintButton.mousePressed(startSprint);
-  
-  // //create button for starting a short break
-  // shortBreakButton = createButton('short break');
-  // shortBreakButton.mousePressed(shortBreak);
-  
-  // //create button for starting a long break
-  // longBreakButton = createButton('long break');
-  // longBreakButton.mousePressed(longBreak);
-
-  // //create button for cancelling the timer
-  // longBreakButton = createButton('cancel');
-  // longBreakButton.mousePressed(cancelTimer);
-
-
   //create canvas
-  createCanvas(1000,250);
+  canvas = createCanvas(1200,250);
+  canvas.id('canvas');
   
   background(backgroundColor);
   noStroke();
   fill(170,255,0);
   rectMode(CORNERS);
-  
-  // createElement('form','<input width="550" spellcheck="false" placeholder="log entry..."></input> <input id="submit" type="submit"</input>');
-  logInput = createInput('');
-  logInput.size(950);
-  logInput.attribute('id','entry');
-  logInput.attribute('spellcheck','false');
-  logInput.attribute('placeholder','log entry...');
-  logInput.attribute('autofocus','true');
 
-  textSize(32);  
+  textSize(62);  
   textAlign(CENTER);  
 }
 
@@ -66,20 +39,18 @@ var currentSecond = second();
   if (timerActive === true) {  
     if (currentSecond != previousSecond) {
       secondsLeft -= 1;
-//      playTick();
     }
 
-    //draw progress bar
-    rect(0,0,map(secondsLeft,0,maxLength*60,0,width),height);
+
 
 
     // //debugging stuff
-    // print("timerActive: " + timerActive);
-    // print("previousSecond: " + previousSecond);
-    // print("currentSecond: " + currentSecond);
     print("secondsLeft: " + secondsLeft);
     
   }
+
+  //draw progress bar
+  rect(0,0,map(secondsLeft,0,maxLength*60,0,width),height);
 
   // play timer done sound when timer is active and hits zero  
   if (timerActive === true && secondsLeft<1) {
@@ -104,18 +75,25 @@ var currentSecond = second();
     fill(100, 100, 100, 50);
     rect(0,0,mouseX,height);
 
-    // update sprintLength to match hover
+    // update sprintLength
     newSprintLength = round(mouseX/20)
     
-    // draw the length of the new timer when hovering
-    // (dividing by 10 gives the 600 px canvas a max length of 60 minutes)
+    // draw the length of the new timer
     fill(85,98,112);
-    textFont('Open Sans')
-    text("start " + newSprintLength + " minute sprint", width/2,(height/2) + 16); 
+    textFont('Open Sans');
+    text(newSprintLength + " minute sprint", width/2,(height/2) + 16); 
   
-  // print(millis());
 
-  }  
+  }  else {
+    fill(85,98,112);
+    textFont('Open Sans');
+    text(round(secondsLeft/60) + " minute sprint", width/2,(height/2) + 16); 
+
+  }
+
+  
+
+
 }
 
 function getTime() {
@@ -146,39 +124,33 @@ function keyPressed() {
 function recordEntry() {
   var entry = document.getElementById('entry');
   createElement('p','['+ getTime() +'] ' + entry.value);
-  //createElement('p',entry.value);
   entry.value = '';
 }
 
-// start a timer for the desired number of seconds
-function startSprint(seconds) {
-  timerDone.stop();
-  seconds = sprintLength*60; 
-  secondsLeft = seconds;
-  timerActive = true;
-
-  createElement('p','['+ getTime() +'] ' + sprintLength + ' minute sprint started');
+function getRadioVal(form, name) {
+  var val;
+  // get list of radio buttons with specified name
+  var radios = form.elements[name];
   
+  // loop through list of radio buttons
+  for (var i=0, len=radios.length; i<len; i++) {
+      if ( radios[i].checked ) { // radio checked?
+          val = radios[i].value; // if so, hold its value in val
+          break; // and break out of for loop
+      }
+  }
+  return val; // return value of checked radio or undefined if none checked
 }
 
-// function shortBreak(seconds) {
-//   timerDone.stop();
-//   seconds = shortBreakLength*60;
-//   secondsLeft = seconds;
-//   timerActive = true;
+// start a timer for the desired number of seconds
+function startSprint() {
+  var currentTask = getRadioVal( document.getElementById('tasks'), 'radios' );
+  timerDone.stop();
+  timerActive = true;
 
-//   createElement('p','['+hour() + ':' + minute()+'] short break started');
+  createElement('p','['+ getTime() +'] ' + sprintLength + ' minute sprint started. current task: ' + currentTask);
   
-// }
-
-// function longBreak(seconds) {
-//   timerDone.stop();
-//   seconds = longBreakLength*60;
-//   secondsLeft = seconds;
-//   timerActive = true;
-
-//   createElement('p','['+hour() + ':' + minute()+'] long break started');
-// }
+}
 
 function cancelTimer() {
   timerActive = false;
@@ -186,23 +158,20 @@ function cancelTimer() {
   createElement('p','['+hour() + ':' + minute()+'] timer cancelled');
 }
 
-
-// function playTick() {
-//   tick.play();
-// }
-
 function playTimerDone() {
   timerDone.loop();
+  sprintLength = 25;
+  secondsLeft = sprintLength*60;
+
 }
 
 function mouseClicked() {
   timerDone.stop();
 
   if (mouseX > 0 && mouseX < width && mouseY >= 0 && mouseY < height) {
-  	sprintLength = newSprintLength;
-  	startSprint();
+  sprintLength = newSprintLength;
+  secondsLeft = sprintLength*60;
+
+  	//startSprint();
   }
-
-
-
 } 
