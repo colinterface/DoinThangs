@@ -1,27 +1,30 @@
 body {
-  margin-top:50px;
-  margin-left:50px;
+  margin-top:0px;
+  margin-left:0px;
   font-family: 'Open Sans', sans-serif;
   color:#556270;
 }
 
 #canvas {
   position: fixed;
-  top:50px;
+  top:0px;
+  left: 150px;
 
 }
 
 #canvasShim {
-  width: 1200px;
-  height: 250px;
+  //position: fixed;
+  top: 0px;
+  width: 800px;
+  height: 331px;
 }
 
 button {
   position: fixed;
-  left: 1250px;
-  top: 50px;
-  width: 250px;
-  height:250px;
+  left: 0px;
+  top: 0px;
+  width: 150px;
+  height:200px;
 	font-size: 48px;
 	border:none;
 	outline: none;
@@ -33,20 +36,30 @@ button {
 }
 
 button:hover {
-	background-color: #ffaa00;
+	//background-color: #ffaa00;
+  font-size: 58px;
+}
+
+#tasks {
+  position: fixed;
+  top: 200px
 }
 
 
-
 #entry {
-  font-size:18px;
+  font-family: 'Open Sans', sans-serif;
+  font-size:24px;
   font-weight: lighter;
   color:#556270;
 	outline: none;
 	padding:7px 23px 7px 23px;
-  width: 1150px;
+  width: 900px;
 }
 
+.logEntry {
+  margin-left: 80px;
+  font-size: 18px;
+}
 
 
 canvas {
@@ -54,7 +67,7 @@ canvas {
 }
 
 p {
-  font-size:18px;
+  font-size:24px;
   font-family: 'Open Sans', sans-serif;
 	font-weight:lighter;
 	color:#556270;
@@ -72,20 +85,21 @@ input[type=radio], input[type=checkbox] {
 
 input[type=radio] + label, input[type=checkbox] + label {
   display:inline-block;
-  margin-right:-6px;
+  margin-right:-4px;
   //padding: 8px 12px;
+  padding-top: 10px;
   margin-bottom: 0;
   font-size: 24px;
   font-weight: lighter;
 //line-height: 80px;
   height: 80px;
-  width:200px;
+  width:190px;
   color: #333;
   text-align: center;
   text-shadow: 0 1px 1px rgba(255,255,255,0.75);
   vertical-align: middle;
   background-color: #f5f5f5;
-  border: 1px solid #ccc;
+  //border: 1px solid #ccc;
   border-color: #e6e6e6 #e6e6e6 #bfbfbf;
   border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
 }
@@ -94,7 +108,7 @@ input[type=radio]:checked + label, input[type=checkbox]:checked + label{
   background-image: none;
   outline: 0;
   color: black;
-  background-color: white;//#556270;
+  background-color: #ffaa00;
 }
 
 /*
@@ -105,6 +119,7 @@ STAR RATING STUFF
   font-size: 0;
   white-space: nowrap;
   display: inline-block;
+  margin-left: 25px;
   width: 250px;
   height: 50px;
   overflow: hidden;

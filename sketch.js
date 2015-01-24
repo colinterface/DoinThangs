@@ -15,7 +15,7 @@ function preload() {
 
 function setup() {
   //create canvas
-  canvas = createCanvas(1200,250);
+  canvas = createCanvas(800,200);
   canvas.id('canvas');
   
   background(backgroundColor);
@@ -56,7 +56,10 @@ var currentSecond = second();
   if (timerActive === true && secondsLeft<1) {
     timerActive = false;
     playTimerDone();
-    createElement('p','['+ getTime() +'] timer done');
+    //createElement('p','['+ getTime() +'] timer done');
+    //createElement('p', 'sprint completed. how did it go?');
+    createElement('span', '<input type="radio" name="rating" value="1"><i></i><input type="radio" name="rating" value="2"><i></i><input type="radio" name="rating" value="3"><i></i><input type="radio" name="rating" value="4"><i></i><input type="radio" name="rating" value="5"><i></i>').addClass('star-rating');
+
    }
 
  
@@ -76,7 +79,7 @@ var currentSecond = second();
     rect(0,0,mouseX,height);
 
     // update sprintLength
-    newSprintLength = round(mouseX/20)
+    newSprintLength = round(mouseX/13.3)
     
     // draw the length of the new timer
     fill(85,98,112);
@@ -96,24 +99,24 @@ var currentSecond = second();
 
 }
 
-function getTime() {
-  var time = "";
-  time += hour()%12 + ":";
+// function getTime() {
+//   var time = "";
+//   time += hour()%12 + ":";
 
-  if (minute() < 10) {
-  	time += "0";
-  }
+//   if (minute() < 10) {
+//   	time += "0";
+//   }
 
-  time += minute();
+//   time += minute();
 
-  if (hour() > 12) {
-  	time += "pm";
-  } else {
-  	time += "am";
-  }
+//   if (hour() > 12) {
+//   	time += "pm";
+//   } else {
+//   	time += "am";
+//   }
 
-  return time;
-}
+//   return time;
+// }
 
 function keyPressed() {
   if (keyCode === ENTER && document.getElementById('entry').value !== '') {
@@ -123,7 +126,8 @@ function keyPressed() {
 
 function recordEntry() {
   var entry = document.getElementById('entry');
-  createElement('p','['+ getTime() +'] ' + entry.value);
+  //createElement('p','['+ getTime() +'] ' + entry.value);
+  createElement('p', '\"' + entry.value + '\"').addClass('logEntry');
   entry.value = '';
 }
 
@@ -148,8 +152,9 @@ function startSprint() {
   timerDone.stop();
   timerActive = true;
 
-  createElement('p','['+ getTime() +'] ' + sprintLength + ' minute sprint started. current task: ' + currentTask);
-  
+  //createElement('p','['+ getTime() +'] ' + sprintLength + ' minute sprint started. current task: ' + currentTask);
+  createElement('p', currentTask + ' for ' + sprintLength + ' minutes!');
+
 }
 
 function cancelTimer() {
